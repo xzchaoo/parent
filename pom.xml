@@ -38,6 +38,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<spring.boot.version>1.5.1.RELEASE</spring.boot.version>
+		<spring.version>4.3.6.RELEASE</spring.version>
 
 		<fastjson.version>1.2.24</fastjson.version>
 
@@ -57,6 +58,11 @@
 
 		<java.version>1.5</java.version>
 		<javax.inject.version>1</javax.inject.version>
+
+		<maven.compiler.version>3.6.0</maven.compiler.version>
+		<maven.enforcer.version>1.4</maven.enforcer.version>
+		<maven.source.version>2.2.1</maven.source.version>
+		<maven.javadoc.version>2.9.1</maven.javadoc.version>
 	</properties>
 
 	<dependencyManagement>
@@ -151,18 +157,34 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.version}</version>
+					<executions>
+						<execution>
+							<id>repackage</id>
+							<phase>package</phase>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.6.0</version>
+					<version>${maven.compiler.version}</version>
 					<configuration>
 						<target>${java.version}</target>
 						<source>${java.version}</source>
 					</configuration>
 				</plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>2.2.1</version>
+					<version>${maven.source.version}</version>
 					<executions>
 						<execution>
 							<id>attach-sources</id>
@@ -176,7 +198,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.9.1</version>
+					<version>${maven.javadoc.version}</version>
 					<executions>
 						<execution>
 							<id>attach-javadocs</id>
@@ -217,7 +239,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>1.4</version>
+					<version>${maven.enforcer.version}</version>
 					<executions>
 						<execution>
 							<id>enforcer</id>
