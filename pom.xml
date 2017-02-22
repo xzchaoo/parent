@@ -6,7 +6,7 @@
 
 	<groupId>com.xzchaoo</groupId>
 	<artifactId>parent</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
@@ -56,11 +56,18 @@
 		<jsoup.version>1.10.2</jsoup.version>
 
 		<java.version>1.5</java.version>
+		<javax.inject.version>1</javax.inject.version>
 	</properties>
 
 	<dependencyManagement>
 
 		<dependencies>
+
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>${javax.inject.version}</version>
+			</dependency>
 
 			<!--spring系列-->
 			<dependency>
