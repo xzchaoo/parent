@@ -6,7 +6,7 @@
 
 	<groupId>com.xzchaoo.parent</groupId>
 	<artifactId>parent</artifactId>
-	<version>1.0.9</version>
+	<version>1.0.10</version>
 
 	<packaging>pom</packaging>
 
@@ -59,6 +59,7 @@
 		<commons.collections.version>3.2.2</commons.collections.version>
 		<commons.collections4.version>4.1</commons.collections4.version>
 		<commons.beanutils.version>1.9.3</commons.beanutils.version>
+		<commons.codec.version>1.10</commons.codec.version>
 
 		<joda.time.version>2.9.7</joda.time.version>
 		<junit4.version>4.12</junit4.version>
@@ -73,12 +74,19 @@
 		<mockito.version>2.7.17</mockito.version>
 		<netty.version>4.1.9.Final</netty.version>
 		<alibaba.druid.version>1.0.29</alibaba.druid.version>
+		<mapdb.version>3.0.3</mapdb.version>
 	</properties>
 
 	<!--越前面优先级越高-->
 	<dependencyManagement>
 
 		<dependencies>
+
+			<dependency>
+				<groupId>org.mapdb</groupId>
+				<artifactId>mapdb</artifactId>
+				<version>${mapdb.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -144,6 +152,13 @@
 				<artifactId>commons-lang</artifactId>
 				<version>${commons.lang.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons.codec.version}</version>
+			</dependency>
+
 
 			<!--influxdb-->
 			<dependency>
